@@ -50,15 +50,35 @@ def backwards(delay, steps):
             setStep(Seq[j][0], Seq[j][1], Seq[j][2], Seq[j][3])
             time.sleep(delay)
 
+def animation(number,vel=2):
+    MotorVel=vel
+    delay=10
+    if(number==1):
+        anim1()
+    else:
+        setParams();
+def setParams():
+    MotorVel = raw_input("Speed (1 or 2)?")
+    delay = raw_input("Time Delay (ms)?")
+    steps = raw_input("How many steps forward? ")
+    forward(int(delay) / 1000.0, int(steps))
+    steps = raw_input("How many steps backwards? ")
+    backwards(int(delay) / 1000.0, int(steps))
+def anim1():
+    stepsfor = 200
+    stepsback = 200
+
+    forward(int(delay) / 1000.0, int(stepfor))
+    backwards(int(delay) / 1000.0, int(stepback))
+    stepsfor = 100
+    forward(int(delay) / 1000.0, int(stepfor))
+
 if __name__ == '__main__':
     try:
         while True:
-            MotorVel=2
-            delay = raw_input("Time Delay (ms)?")
-            steps = raw_input("How many steps forward? ")
-            forward(int(delay) / 1000.0, int(steps))
-            steps = raw_input("How many steps backwards? ")
-            backwards(int(delay) / 1000.0, int(steps))
+            numb_anim = raw_input("which animation?")
+            animation(int(numb_anim))
+
     except KeyboardInterrupt:
         pass
     finally:
